@@ -5,8 +5,9 @@ import {
   Redirect
 } from 'react-router-dom';
 //courses imports
-import CourseContainer from './courses/CourseContainer';
-import { HTMLCourses, CSSCourses, JSCourses } from '../data/courses';
+import CSS from './courses/CSS';
+import HTML from './courses/HTML';
+import JavaScript from './courses/JavaScript';
 
 {/* match.url stands in for './courses'
 in Router it's match.path 
@@ -22,13 +23,12 @@ const Courses = ({match}) => (
       </ul>
     </div>
         {/* Displays Routes below navigation. 
-        Redirect to set a default course so it won't disaply empty
-        Courses are displayed by passing props to Course Container and pulling infrom from Courses/Data page */}
+        Redirect to set a default course so it won't diaply empty */}
     
     <Route exact path={match.path} render={() =>  <Redirect to={`${match.path}/html`} />} />
-    <Route path={`${match.path}/css`} render={() => <CourseContainer data={CSSCourses} />} />
-    <Route path={`${match.path}/html`} render={() => <CourseContainer data={HTMLCourses} />} />
-    <Route path={`${match.path}/javascript`} render={() => <CourseContainer data={JSCourses} />}/>
+    <Route path={`${match.path}/css`} component={CSS} />
+    <Route path={`${match.path}/html`} component={HTML} />
+    <Route path={`${match.path}/javascript`} component={JavaScript} />
 
   </div>
 );

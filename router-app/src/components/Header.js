@@ -1,13 +1,18 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 const Header = () => (
   <header>
     <span className="icn-logo"><i className="material-icons">code</i></span>
     <ul className="main-nav">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Teachers</a></li>
-      <li><a href="#">Courses</a></li>
+    {/* 'Link' is for general links 'NavLink' can show active links
+    activeClassName=""
+    activeStyle={{background: red;}}
+    */}
+      <li><NavLink exact to="/" >Home</NavLink></li>
+      <li><NavLink to="/about">About</NavLink></li>
+      <li><NavLink to="/teachers">Teachers</NavLink></li>
+      <li><NavLink to="/courses">Courses</NavLink></li>
     </ul>    
   </header>
 );
